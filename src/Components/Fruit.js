@@ -10,7 +10,7 @@ const Fruit = ({type, position, size, isCut, onAnimationComplete}) => {
       setShowCutFruit(true);
       Animated.timing(cutAnimation, {
         toValue: 1,
-        duration: 500,
+        duration: 500, 
         easing: Easing.linear,
         useNativeDriver: false,
       }).start(() => {
@@ -78,14 +78,14 @@ const Fruit = ({type, position, size, isCut, onAnimationComplete}) => {
       ]}>
       {!showCutFruit && <Image source={uncutImage} style={styles.image} />}
       {showCutFruit && (
-        <Animated.View style={[styles.cut1Image, {opacity: cutAnimation}]}>
-          <Image source={cut1Image} style={styles.image} />
-        </Animated.View>
-      )}
-      {showCutFruit && (
-        <Animated.View style={[styles.cut2Image, {opacity: cutAnimation}]}>
-          <Image source={cut2Image} style={styles.image} />
-        </Animated.View>
+        <View style={styles.overlay}>
+          <Animated.View style={[styles.cut1Image, {opacity: cutAnimation}]}>
+            <Image source={cut1Image} style={styles.image} />
+          </Animated.View>
+          <Animated.View style={[styles.cut2Image, {opacity: cutAnimation}]}>
+            <Image source={cut2Image} style={styles.image} />
+          </Animated.View>
+        </View>
       )}
     </View>
   );
@@ -100,6 +100,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'contain',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)', // White overlay with 70% opacity
   },
   cut1Image: {
     ...StyleSheet.absoluteFillObject,
