@@ -24,15 +24,12 @@ const {height, width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    width: width,
+    height: height,
   },
   image: {
     width: width,
     height: height,
-    resizeMode: 'cover',
   },
 });
 
