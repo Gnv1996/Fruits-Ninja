@@ -13,7 +13,7 @@ const Splash = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assest/FruitsNinja.jpg')}
+        source={require('../assest/fruitsNinja.jpeg')}
         style={styles.image}
       />
     </View>
